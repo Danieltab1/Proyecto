@@ -1,0 +1,40 @@
+{
+  "TABS": {
+    "HOME": "Inicio",
+    "EXPLORE": "Explorar",
+    "FAVORITES": "Favoritos",
+    "SETTINGS": "Ajustes"
+  },
+  
+  "SETTINGS": "Ajustes",
+  "DARK_MODE": "Modo oscuro",
+  "LANGUAGE": "Idioma",
+  "FONT_SIZE": "Tamaño de fuente",
+  "FONT_SMALL": "Pequeño",
+  "FONT_MEDIUM": "Medio",
+  "FONT_LARGE": "Grande",
+  "RESET_DEFAULTS": "Restablecer por defecto",
+
+  "HOME": {
+    "TITLE": "Personajes",
+    "SEARCH_PLACEHOLDER": "Buscar personaje...",
+    "FILTERS": "Filtros",
+    "FILTER_UNIVERSE_MARVEL": "Universo: Marvel",
+    "FILTER_UNIVERSE_DC": "Universo: DC",
+    "FILTER_AFFILIATION_HERO": "Afiliación: Héroe",
+    "FILTER_AFFILIATION_ANTI": "Afiliación: Antiheroe",
+    "FILTER_AFFILIATION_VILLAIN": "Afiliación: Villano",
+    "FILTER_ORDER_AZ": "Ordenar A → Z",
+    "FILTER_ORDER_ZA": "Ordenar Z → A",
+    "FILTER_CLEAR": "Limpiar filtros",
+    "DETAILS": "Detalles",
+    "TYPE": "Tipo",
+    "UNIVERSE": "Universo",
+    "LABEL": "Etiquetas",
+    "BIBLIOGRAPHY": "Bibliografia",
+    "POWERS": "Poderes",
+    "WEAKNESSES": "Debilidades",
+    "FIRSTAPPAEARANCE": "Primera Aparición",
+    "LOADING": "Cargando más personajes..."
+  }
+}

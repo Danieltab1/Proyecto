@@ -1,0 +1,18 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="favoritos" [attr.arial.label]="t('TABS.FAVORITES')">
+      <ion-icon name="heart" aria-hidden="true"></ion-icon>
+      <ion-label>{{ t('TABS.FAVORITES') }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="home" [attr.arial.label]="t('TABS.HOME')">
+      <ion-icon name="search" aria-hidden="true"></ion-icon>
+      <ion-label>{{ t('TABS.EXPLORE') }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="ajustes" [attr.arial.label]="t('TABS.SETTINGS')">
+      <ion-icon name="settings" aria-hidden="true"></ion-icon>
+      <ion-label>{{ t('TABS.SETTINGS') }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

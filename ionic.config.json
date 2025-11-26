@@ -1,0 +1,7 @@
+{
+  "name": "ParcialFinalHeroes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

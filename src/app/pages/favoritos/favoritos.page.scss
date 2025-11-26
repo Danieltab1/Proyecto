@@ -1,0 +1,314 @@
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8c8c8c;
+
+  ion-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    margin: 0 0 8px 0;
+    color: #666;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+/********************************************
+ *  TARJETAS HORIZONTALES (COMO EN HOME)
+ ********************************************/
+
+/* Tarjeta general */
+ion-card {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: row;
+  height: 140px;
+  margin: 10px 0;
+}
+
+/* Imagen del personaje - Horizontal */
+.personaje-img {
+  width: 120px;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 0;
+}
+
+/* Contenido de la card */
+ion-card-header {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+ion-card-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+ion-card-content {
+  padding: 0;
+  flex: 1;
+}
+
+/* Colores dinámicos del borde */
+.marvel-card {
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, transparent 100%);
+}
+
+.dc-card {
+  box-shadow: 0 4px 12px rgba(0, 110, 255, 0.3);
+  border: 1px solid rgba(0, 110, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 110, 255, 0.05) 0%, transparent 100%);
+}
+
+/********************************************
+ *  ETIQUETAS EN LA TARJETA
+ ********************************************/
+.etiquetas-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.marvel-tag {
+  background: rgba(192, 36, 36, 0.15);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.dc-tag {
+  background: rgba(54, 36, 192, 0.15);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/********************************************
+ *  CARD EXPANDIDA (SIN RECUADRO NEGRO)
+ ********************************************/
+.expandido-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; // Z-index más alto para asegurar que esté por encima
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+// Ocultar header cuando la carta está expandida
+.expandido-overlay ~ ion-header {
+  display: none !important;
+}
+
+// Ocultar contenido cuando la carta está expandida
+.expandido-overlay ~ ion-content {
+  display: none !important;
+}
+
+.backdrop-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+  animation: fadeIn 0.3s ease;
+}
+
+.expandido-card {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  border-radius: 0;
+  color: white;
+  animation: zoomIn 0.25s ease;
+  position: relative;
+  box-shadow: none;
+}
+
+.contenido-transparente {
+  width: 100%;
+}
+
+@keyframes zoomIn {
+  from { 
+    transform: scale(0.8); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+.titulo-seccion {
+  text-align: center;
+  margin: 20px 0 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nombre-personaje {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 15px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.texto-info {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 12px 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  
+  strong {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.expandido-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.tag-transparente {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  color: #ffffff;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cerrar-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: white;
+  --background: transparent;
+  --box-shadow: none;
+  z-index: 10000;
+}
+
+.favorite-btn {
+  color: #de4a4a;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 20px;
+  --background: transparent;
+  --box-shadow: none;
+  z-index: 10000;
+}
+
+.metricas .metrica {
+  margin-bottom: 14px;
+}
+
+.metrica-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.metrica-header label {
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.metrica-header .valor {
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.barra {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+.marvel-relleno {
+  height: 100%;
+  background: #de4a4a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(222, 74, 74, 0.5);
+}
+
+.dc-relleno {
+  height: 100%;
+  background: #4a59de;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(74, 89, 222, 0.5);
+}
+
+// Mejora la visibilidad de los botones
+.cerrar-btn ion-icon,
+.favorite-btn ion-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}

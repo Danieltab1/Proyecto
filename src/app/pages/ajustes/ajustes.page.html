@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ t('SETTINGS') }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-theme">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ t('SETTINGS') }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+ 
+    <ion-item>
+      <ion-label>{{ t('DARK_MODE') }}</ion-label>
+      <ion-toggle [(ngModel)]="paletteToggle" (ionChange)="toggleChange($event)" justify="space-between"
+      [attr.aria-label]="t('DARK_MODE')" role="switch">Dark Mode</ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ t('LANGUAGE') }}</ion-label>
+      <ion-select [(ngModel)]="language" (ionChange)="changeLanguage()" [attr.aria-label]="t('LANGUAGE')" role="combobox">
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="en">English</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ t('FONT_SIZE') }}</ion-label>
+      <ion-select [(ngModel)]="fontSize" (ionChange)="changeFontSize()" [attr.aria-label]="t('FONT_SIZE')" role="combobox">
+        <ion-select-option value="medium">{{ t('FONT_SMALL') }}</ion-select-option>
+        <ion-select-option value="small">{{ t('FONT_MEDIUM') }} </ion-select-option>
+        <ion-select-option value="large">{{ t('FONT_LARGE') }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <div style="padding:16px;">
+    <ion-button expand="block" color="danger" (click)="resetDefaults()" [attr.aria-label]="t('RESET_DEFAULTS')" role="button">
+      {{ t('RESET_DEFAULTS') }}
+    </ion-button>
+  </div>
+</ion-content>
