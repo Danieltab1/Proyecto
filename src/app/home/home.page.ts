@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Personaje } from '../models/personaje.model';
 import { PersonajesService } from '../services/personajes';
-import { IonSelect, IonSelectOption, IonItem, IonChip, IonAccordionGroup, IonAccordion } from '@ionic/angular/standalone';
-import { InfiniteScrollCustomEvent, IonTitle, IonToolbar, IonSearchbar, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonList, IonHeader, IonButtons, IonButton, IonIcon, IonLabel, IonCheckbox } from '@ionic/angular/standalone';
+import { IonSelect, IonSelectOption, IonItem, IonChip} from '@ionic/angular/standalone';
+import { InfiniteScrollCustomEvent, IonTitle, IonToolbar, IonSearchbar, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonList, IonHeader, IonButtons, IonButton, IonIcon, } from '@ionic/angular/standalone';
 import { NgFor, NgIf, NgClass } from '@angular/common';
 import { LanguageService } from '.././services/language.service';
 
@@ -11,7 +11,7 @@ import { LanguageService } from '.././services/language.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [ IonSelect, IonSelectOption, IonItem, IonChip, IonAccordionGroup, IonAccordion, IonTitle, IonToolbar, IonSearchbar, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonList, IonHeader, IonButtons, IonButton, IonIcon, IonLabel, IonCheckbox, NgFor, NgIf, NgClass],
+  imports: [ IonSelect, IonSelectOption, IonItem, IonChip, IonTitle, IonToolbar, IonSearchbar, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonList, IonHeader, IonButtons, IonButton, IonIcon,  NgFor, NgIf, NgClass],
 })
 
 export class Homepage implements OnInit {
@@ -39,7 +39,6 @@ export class Homepage implements OnInit {
   traducir(clave: string) {
     return this.servicioIdioma.t(clave);
   }
-
   ngOnInit() {
     this.listaPersonajes = this.servicioPersonajes.getPersonajes();
     this.obtenerListaEtiquetas();

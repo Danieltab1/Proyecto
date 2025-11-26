@@ -20,13 +20,16 @@ import { LanguageService } from '../../services/language.service';
   ]
 })
 export class FavoritosPage implements OnInit {
+  language: 'es' | 'en' = 'es';
   personajesFavoritos: Personaje[] = [];
   personajeExpandido: Personaje | null = null;
   esFavorito: boolean = false;
 
+
   constructor(
     private personajesService: PersonajesService,
-    private lang: LanguageService
+    private lang: LanguageService,
+    private langService: LanguageService
   ) {}
 
   t(key: string) {
@@ -35,6 +38,7 @@ export class FavoritosPage implements OnInit {
 
   ngOnInit() {
     this.cargarFavoritos();
+    this.language = this.langService.getLanguage()
   }
 
   cargarFavoritos() {

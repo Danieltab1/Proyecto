@@ -25,7 +25,7 @@ traducciones y ajustes dentro de una app híbrida.
 ### 1. Clonar el repositorio
 
 ``` bash
-git clone https://github.com/usuario/heroes-villains.git
+git clone https://github.com/Danieltab1/heroes-villanos.git
 ```
 
 ### 2. Entrar al directorio
@@ -40,6 +40,8 @@ cd heroes-villains
 npm install
 ```
 
+
+
 ------------------------------------------------------------------------
 
 ## ▶ Uso
@@ -52,6 +54,25 @@ ionic serve
 
 La aplicación se abrirá en tu navegador y actualizará automáticamente
 los cambios que realices.
+
+
+## Construir y desplegar en Android
+
+Sigue estos comandos para compilar el proyecto e integrarlo con Capacitor para Android:
+
+```bash
+# 1. Construir el proyecto Ionic
+ionic build
+
+# 2. Agregar la plataforma Android
+npx cap add android
+
+# 3. Sincronizar cambios con Android
+npx cap sync android
+
+# 4. Abrir el proyecto en Android Studio
+npx cap open android
+```
 
 ------------------------------------------------------------------------
 
@@ -67,15 +88,37 @@ los cambios que realices.
 
 ## Estructura del proyecto (resumen)
 
-    src/
-     ├─ app/
-     │   ├─ pages/
-     │   ├─ services/
-     │   ├─ components/
-     │   └─ app.config.ts
-     ├─ assets/
-     │   └─ i18n/
-     └─ theme/
+   HEROES-VILLAINS.02/
+│
+├── .angular/
+├── .idea/
+├── .vscode/
+├── android/
+├── heroes-villanos/
+├── node_modules/
+│
+├── src/
+│ ├── app/
+│ │ ├── home/
+│ │ ├── models/
+│ │ ├── pages/
+│ │ │ ├── ajustes/
+│ │ │ ├── explorar/
+│ │ │ ├── favoritos/
+│ │ ├── services/
+│ │ ├── tabs/
+│ │ ├── app.component.html
+│ │ ├── app.component.scss
+│ │ ├── app.component.spec.ts
+│ │ ├── app.component.ts
+│ │ ├── app.routes.ts
+│ │
+│ ├── assets/
+│ │ ├── icon/
+│ │ ├── img/
+│ │ ├── lang/
+│
+└── package.json
 
 ------------------------------------------------------------------------
 
