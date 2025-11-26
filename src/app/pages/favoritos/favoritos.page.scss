@@ -1,4 +1,125 @@
+/* ================================ */
+/*          CONTENEDORES GENERALES  */
+/* ================================ */
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 
+  strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+/* ================================ */
+/*          GRID DE ETIQUETAS       */
+/* ================================ */
+.etiquetas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 12px;
+  padding: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+  }
+}
+
+.etiqueta-item {
+  --padding-start: 8px;
+  --inner-padding-end: 0px;
+  --padding-end: 0px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.etiqueta-item ion-checkbox {
+  margin-left: auto;
+  margin-right: 6px;
+}
+
+/* ================================ */
+/*          TARJETA HORIZONTAL      */
+/* ================================ */
+ion-list {
+  padding: 0 12px;
+}
+
+ion-card {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  margin: 12px 0;
+  height: 160px;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  transition: 0.25s ease;
+}
+
+/* Contenido izquierdo */
+ion-card-header,
+ion-card-content {
+  padding: 10px 12px;
+  flex: 1;
+  overflow: hidden;
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+/* Imagen a la derecha */
+.personaje-img {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Etiquetas dentro de la tarjeta */
+.etiquetas-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* ================================ */
+/*          ESTADO VACÍO FAVORITOS  */
+/* ================================ */
 .empty-state {
   text-align: center;
   padding: 40px 20px;
@@ -20,103 +141,16 @@
   }
 }
 
-/********************************************
- *  TARJETAS HORIZONTALES (COMO EN HOME)
- ********************************************/
-
-/* Tarjeta general */
-ion-card {
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  transition: 0.25s ease;
-  display: flex;
-  flex-direction: row;
-  height: 140px;
-  margin: 10px 0;
-}
-
-/* Imagen del personaje - Horizontal */
-.personaje-img {
-  width: 120px;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  border-top-right-radius: 0;
-}
-
-/* Contenido de la card */
-ion-card-header {
-  padding: 12px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-ion-card-title {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 8px;
-}
-
-ion-card-content {
-  padding: 0;
-  flex: 1;
-}
-
-/* Colores dinámicos del borde */
-.marvel-card {
-  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, transparent 100%);
-}
-
-.dc-card {
-  box-shadow: 0 4px 12px rgba(0, 110, 255, 0.3);
-  border: 1px solid rgba(0, 110, 255, 0.3);
-  background: linear-gradient(135deg, rgba(0, 110, 255, 0.05) 0%, transparent 100%);
-}
-
-/********************************************
- *  ETIQUETAS EN LA TARJETA
- ********************************************/
-.etiquetas-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 6px;
-}
-
-.marvel-tag {
-  background: rgba(192, 36, 36, 0.15);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  display: inline-block;
-}
-
-.dc-tag {
-  background: rgba(54, 36, 192, 0.15);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  display: inline-block;
-}
-
-/********************************************
- *  CARD EXPANDIDA (SIN RECUADRO NEGRO)
- ********************************************/
+/* ================================ */
+/*          EXPANDIR TARJETA        */
+/* ================================ */
 .expandido-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999; // Z-index más alto para asegurar que esté por encima
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -124,12 +158,7 @@ ion-card-content {
   padding: 20px;
 }
 
-// Ocultar header cuando la carta está expandida
-.expandido-overlay ~ ion-header {
-  display: none !important;
-}
-
-// Ocultar contenido cuando la carta está expandida
+.expandido-overlay ~ ion-header,
 .expandido-overlay ~ ion-content {
   display: none !important;
 }
@@ -149,13 +178,10 @@ ion-card-content {
 
 .expandido-card {
   background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   border: none;
   width: 100%;
   max-width: 480px;
   padding: 20px;
-  border-radius: 0;
   color: white;
   animation: zoomIn 0.25s ease;
   position: relative;
@@ -186,6 +212,9 @@ ion-card-content {
   }
 }
 
+/* ================================ */
+/*          TEXTOS Y TITULOS        */
+/* ================================ */
 .titulo-seccion {
   text-align: center;
   margin: 20px 0 10px;
@@ -241,6 +270,7 @@ ion-card-content {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Botones de cierre y favorito */
 .cerrar-btn {
   position: absolute;
   right: 10px;
@@ -262,53 +292,71 @@ ion-card-content {
   z-index: 10000;
 }
 
+.cerrar-btn ion-icon,
+.favorite-btn ion-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* ================================ */
+/*          MÉTRICAS VERTICALES     */
+/* ================================ */
+.metricas {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* alinea la base de las barras */
+  gap: 20px;
+}
+
 .metricas .metrica {
-  margin-bottom: 14px;
+  text-align: center;
+  width: 80px; /* ancho fijo de cada columna */
 }
 
 .metrica-header {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 4px;
+  flex-direction: column; /* label arriba, valor debajo */
+  align-items: center;
+  margin-bottom: 6px;
 }
 
 .metrica-header label {
   font-weight: 600;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
 }
 
 .metrica-header .valor {
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 16px;
 }
 
-.barra {
-  width: 100%;
-  height: 10px;
+.barra-vertical {
+  width: 22px;
+  height: 110px;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   backdrop-filter: blur(2px);
 }
 
-.marvel-relleno {
-  height: 100%;
+.relleno-vertical {
+  width: 100%;
+  border-radius: 12px;
+  transition: height 0.4s ease;
+}
+
+.marvel-color {
   background: #de4a4a;
-  border-radius: 10px;
   box-shadow: 0 0 10px rgba(222, 74, 74, 0.5);
 }
 
-.dc-relleno {
-  height: 100%;
+.dc-color {
   background: #4a59de;
-  border-radius: 10px;
   box-shadow: 0 0 10px rgba(74, 89, 222, 0.5);
-}
-
-// Mejora la visibilidad de los botones
-.cerrar-btn ion-icon,
-.favorite-btn ion-icon {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }

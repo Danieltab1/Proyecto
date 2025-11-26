@@ -23,8 +23,8 @@ export class AjustesPage implements OnInit {
     
     this.language = this.langService.getLanguage();
 
-    const savedSize = localStorage.getItem('fontSize') as 'small' | 'medium' | 'large' | null;
-    this.fontSize = savedSize ?? 'medium';
+    const saved = localStorage.getItem('fontSize') as 'small' | 'medium' | 'large';
+    this.fontSize = saved ?? 'medium';
     this.applyFontSize();
   }
 

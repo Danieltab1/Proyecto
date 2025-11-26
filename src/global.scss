@@ -40,25 +40,60 @@ ion-item {
   --transition: none;
 }
 
-body.font-small {
-  font-size: 12px;
-}
+/* ============================= */
+/*       FONT SIZE GLOBAL        */
+/* ============================= */
 
-body.font-medium {
+/* Tamaño base de referencia (mediano) */
+
+/* ============================= */
+/*       FONT SIZE GLOBAL        */
+/* ============================= */
+
+/* Tamaño base de referencia (mediano) */
+body {
   font-size: 16px;
+  line-height: 1.5;
 }
 
+/* Pequeño */
+body.font-small {
+  font-size: 14px !important;
+}
+
+/* Mediano */
+body.font-medium {
+  font-size: 16px !important;
+}
+
+/* Grande */
 body.font-large {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
+/* ============================= */
+/*  Aplicar herencia a todos los elementos  */
+/* ============================= */
+body, body * {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
 
+/* Ajuste específico para componentes de Ionic */
 body.font-small ion-title,
-body.font-small ion-label {
-  font-size: 14px;
+body.font-small ion-label,
+body.font-small ion-card-title {
+  font-size: 14px !important;
+}
+
+body.font-medium ion-title,
+body.font-medium ion-label,
+body.font-medium ion-card-title {
+  font-size: 16px !important;
 }
 
 body.font-large ion-title,
-body.font-large ion-label {
-  font-size: 22px;
+body.font-large ion-label,
+body.font-large ion-card-title {
+  font-size: 20px !important;
 }

@@ -54,51 +54,44 @@
   </ion-item>
 </ion-header>
 
-<div class="filtro-acordeon-wrapper">
-  <ion-accordion-group expand="inset">
-    <ion-accordion value="etiquetas">
-      <ion-item slot="header">
-        <ion-label>Etiquetas</ion-label>
-      </ion-item>
-      <div slot="content" class="etiquetas-grid">
-        <ion-item class="etiqueta-item" *ngFor="let etiqueta of etiquetasLista">
-          <ion-label>{{ etiqueta }}</ion-label>
-          <ion-checkbox
-          slot="end"
-          [checked]="etiquetasFiltro.includes(etiqueta)"
-          (ionChange)="alternarEtiqueta(etiqueta)">
-        </ion-checkbox>
-      </ion-item>
-    </div>
-    </ion-accordion>
-  </ion-accordion-group>
-</div>
-
 <ion-content>
   <ion-list>
-    <ion-card
+  <ion-card
     *ngFor="let p of personajesMostrados"
     (click)="expandirTarjeta(p)"
-    [ngClass]="p.universo === 'Marvel' ? 'marvel-card' : 'dc-card'">
-      
-      <img class="personaje-img" [src]="p.imagen" alt="{{ p.nombre }}" loading="lazy"/>
+    [ngClass]="p.universo === 'Marvel' ? 'marvel-card' : 'dc-card'"
+    class="personaje-card horizontal-card"
+  >
 
-      <ion-card-header>
+    <div class="content-left">
+
+      <!-- Título -->
+      <ion-card-header class="header">
         <ion-card-title>{{ p.nombre }}</ion-card-title>
       </ion-card-header>
 
+      <!-- Contenido -->
       <ion-card-content>
-        <p><strong>{{ traducir('HOME.TYPE') }}: </strong>{{ p.afiliacion }}</p>
-        <p><strong>{{ traducir('HOME.UNIVERSE') }}: </strong>{{ p.universo }}</p>
-        <p><strong>{{ traducir('HOME.LABEL') }}: </strong></p>
-        <div class="etiquetas-wrapper">
-          <span [ngClass]="p.universo === 'Marvel' ? 'marvel-tag' : 'dc-tag'" *ngFor="let tag of (p.etiquetas || '').toString().split(',')">
-            {{ tag.trim() }}
-          </span>
+        <div class="info-item">
+          <strong>{{ traducir('HOME.TYPE') }}:</strong>
+          <span>{{ p.afiliacion }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>{{ traducir('HOME.UNIVERSE') }}:</strong>
+          <span>{{ p.universo }}</span>
         </div>
       </ion-card-content>
-    </ion-card>
-  </ion-list>
+    </div>
+
+    <!-- Imagen a la derecha -->
+    <div class="img-container">
+      <img class="personaje-img" [src]="p.imagen" alt="{{ p.nombre }}" loading="lazy" />
+    </div>
+
+  </ion-card>
+</ion-list>
+
 
   <ion-infinite-scroll (ionInfinite)="alScrollInfinito($event)">
     <ion-infinite-scroll-content loadingSpinner="crescent"
@@ -108,10 +101,8 @@
 </ion-content>
 
 <div *ngIf="personajeSeleccionado" class="expandido-overlay">
-  <!-- Fondo borroso -->
   <div class="backdrop-blur" (click)="cerrarVistaDetallada()"></div>
   
-  <!-- Contenido de la tarjeta expandida -->
   <div class="expandido-card">
     <ion-button fill="clear" class="cerrar-btn" (click)="cerrarVistaDetallada()">
       <ion-icon name="close-circle"></ion-icon>
@@ -124,7 +115,6 @@
       </ion-icon>
     </ion-button>
 
-    <!-- Contenido sin recuadro negro -->
     <div class="contenido-transparente">
       <h1 class="titulo-seccion">Detalles</h1>
 
@@ -160,10 +150,12 @@
             <label>Fuerza</label>
             <span class="valor">{{ personajeSeleccionado.estadisticasPoder.fuerza }}</span>
           </div>
-          <div class="barra">
+
+          <div class="barra-vertical">
             <div
-              [ngClass]="personajeSeleccionado.universo === 'Marvel' ? 'marvel-relleno' : 'dc-relleno'"
-              [style.width.%]="personajeSeleccionado.estadisticasPoder.fuerza">
+              class="relleno-vertical"
+              [ngClass]="personajeSeleccionado.universo === 'Marvel' ? 'marvel-color' : 'dc-color'"
+              [style.height.%]="personajeSeleccionado.estadisticasPoder.fuerza">
             </div>
           </div>
         </div>
@@ -173,10 +165,12 @@
             <label>Velocidad</label>
             <span class="valor">{{ personajeSeleccionado.estadisticasPoder.velocidad }}</span>
           </div>
-          <div class="barra">
+
+          <div class="barra-vertical">
             <div
-              [ngClass]="personajeSeleccionado.universo === 'Marvel' ? 'marvel-relleno' : 'dc-relleno'"
-              [style.width.%]="personajeSeleccionado.estadisticasPoder.velocidad">
+              class="relleno-vertical"
+              [ngClass]="personajeSeleccionado.universo === 'Marvel' ? 'marvel-color' : 'dc-color'"
+              [style.height.%]="personajeSeleccionado.estadisticasPoder.velocidad">
             </div>
           </div>
         </div>
@@ -186,10 +180,12 @@
             <label>Inteligencia</label>
             <span class="valor">{{ personajeSeleccionado.estadisticasPoder.inteligencia }}</span>
           </div>
-          <div class="barra">
+
+          <div class="barra-vertical">
             <div
-              [ngClass]="personajeSeleccionado.universo === 'Marvel' ? 'marvel-relleno' : 'dc-relleno'"
-              [style.width.%]="personajeSeleccionado.estadisticasPoder.inteligencia">
+              class="relleno-vertical"
+              [ngClass]="personajeSeleccionado.universo === 'Marvel' ? 'marvel-color' : 'dc-color'"
+              [style.height.%]="personajeSeleccionado.estadisticasPoder.inteligencia">
             </div>
           </div>
         </div>

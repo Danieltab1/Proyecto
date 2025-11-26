@@ -30,8 +30,8 @@
     <ion-item>
       <ion-label>{{ t('FONT_SIZE') }}</ion-label>
       <ion-select [(ngModel)]="fontSize" (ionChange)="changeFontSize()" [attr.aria-label]="t('FONT_SIZE')" role="combobox">
-        <ion-select-option value="medium">{{ t('FONT_SMALL') }}</ion-select-option>
-        <ion-select-option value="small">{{ t('FONT_MEDIUM') }} </ion-select-option>
+        <ion-select-option value="small">{{ t('FONT_SMALL') }}</ion-select-option>
+        <ion-select-option value="medium">{{ t('FONT_MEDIUM') }} </ion-select-option>
         <ion-select-option value="large">{{ t('FONT_LARGE') }}</ion-select-option>
       </ion-select>
     </ion-item>

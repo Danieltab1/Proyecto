@@ -6,37 +6,53 @@
 
 <ion-content>
   <ion-list>
-    <ion-card 
+
+    <ion-card
       *ngFor="let p of personajesFavoritos"
       (click)="expandirCard(p)"
-      [ngClass]="p.universo === 'Marvel' ? 'marvel-card' : 'dc-card'">
-      
-      <img class="personaje-img" [src]="p.imagen" alt="{{ p.nombre }}" loading="lazy"/>
+      [ngClass]="p.universo === 'Marvel' ? 'marvel-card' : 'dc-card'"
+      class="personaje-card horizontal-card"
+    >
 
-      <ion-card-header>
-        <ion-card-title>{{ p.nombre }}</ion-card-title>
-      </ion-card-header>
+      <div class="content-left">
 
-      <ion-card-content>
-        <p><strong>Afiliación: </strong>{{ p.afiliacion }}</p>
-        <p><strong>Universo: </strong>{{ p.universo }}</p>
-        <p><strong>Etiquetas: </strong></p>
-        <div class="etiquetas-wrapper">
-          <span [ngClass]="p.universo === 'Marvel' ? 'marvel-tag' : 'dc-tag'" *ngFor="let tag of p.etiquetas">
-            {{ tag }}
-          </span>
-        </div>
-      </ion-card-content>
+        <!-- Título -->
+        <ion-card-header class="header">
+          <ion-card-title>{{ p.nombre }}</ion-card-title>
+        </ion-card-header>
+
+        <!-- Contenido -->
+        <ion-card-content>
+          <div class="info-item">
+            <strong>Afiliación:</strong>
+            <span>{{ p.afiliacion }}</span>
+          </div>
+
+          <div class="info-item">
+            <strong>Universo:</strong>
+            <span>{{ p.universo }}</span>
+          </div>
+        </ion-card-content>
+
+      </div>
+
+      <!-- Imagen derecha -->
+      <div class="img-container">
+        <img class="personaje-img" [src]="p.imagen" alt="{{ p.nombre }}" loading="lazy" />
+      </div>
 
     </ion-card>
 
+    <!-- Estado vacío -->
     <div *ngIf="personajesFavoritos.length === 0" class="empty-state">
       <ion-icon name="heart-outline"></ion-icon>
       <h3>No hay favoritos</h3>
       <p>Agrega personajes a favoritos desde la página principal</p>
     </div>
+
   </ion-list>
 </ion-content>
+
 
 
 <div *ngIf="personajeExpandido" class="expandido-overlay">
@@ -86,16 +102,21 @@
 
       <h1 class="titulo-seccion">Métricas</h1>
 
+      <h1 class="titulo-seccion">Métricas</h1>
+
       <div class="metricas">
+
         <div class="metrica">
           <div class="metrica-header">
             <label>Fuerza</label>
             <span class="valor">{{ personajeExpandido.estadisticasPoder.fuerza }}</span>
           </div>
-          <div class="barra">
+
+          <div class="barra-vertical">
             <div
-              [ngClass]="personajeExpandido.universo === 'Marvel' ? 'marvel-relleno' : 'dc-relleno'"
-              [style.width.%]="personajeExpandido.estadisticasPoder.fuerza">
+              class="relleno-vertical"
+              [ngClass]="personajeExpandido.universo === 'Marvel' ? 'marvel-color' : 'dc-color'"
+              [style.height.%]="personajeExpandido.estadisticasPoder.fuerza">
             </div>
           </div>
         </div>
@@ -105,10 +126,12 @@
             <label>Velocidad</label>
             <span class="valor">{{ personajeExpandido.estadisticasPoder.velocidad }}</span>
           </div>
-          <div class="barra">
+
+          <div class="barra-vertical">
             <div
-              [ngClass]="personajeExpandido.universo === 'Marvel' ? 'marvel-relleno' : 'dc-relleno'"
-              [style.width.%]="personajeExpandido.estadisticasPoder.velocidad">
+              class="relleno-vertical"
+              [ngClass]="personajeExpandido.universo === 'Marvel' ? 'marvel-color' : 'dc-color'"
+              [style.height.%]="personajeExpandido.estadisticasPoder.velocidad">
             </div>
           </div>
         </div>
@@ -118,10 +141,12 @@
             <label>Inteligencia</label>
             <span class="valor">{{ personajeExpandido.estadisticasPoder.inteligencia }}</span>
           </div>
-          <div class="barra">
+
+          <div class="barra-vertical">
             <div
-              [ngClass]="personajeExpandido.universo === 'Marvel' ? 'marvel-relleno' : 'dc-relleno'"
-              [style.width.%]="personajeExpandido.estadisticasPoder.inteligencia">
+              class="relleno-vertical"
+              [ngClass]="personajeExpandido.universo === 'Marvel' ? 'marvel-color' : 'dc-color'"
+              [style.height.%]="personajeExpandido.estadisticasPoder.inteligencia">
             </div>
           </div>
         </div>

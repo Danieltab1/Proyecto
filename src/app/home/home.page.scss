@@ -23,6 +23,7 @@
   }
 }
 
+/* GRID DE ETIQUETAS */
 .etiquetas-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -60,57 +61,51 @@
   margin-right: 6px;
 }
 
+/* ================================ */
+/*          TARJETA HORIZONTAL      */
+/* ================================ */
+
+/* ======== ESPACIADO GENERAL ======== */
+ion-list {
+  padding: 0 12px;      /* separación con los bordes de pantalla */
+}
+
+/* ======== TARJETA HORIZONTAL ======== */
 ion-card {
   border-radius: 12px;
   overflow: hidden;
-  position: relative;
-  transition: 0.25s ease;
   display: flex;
   flex-direction: row;
-  height: 140px;
-  margin: 10px 0;
+  margin: 12px 0;
+  height: 160px;            /* ← ALTURA FIJA PARA TODAS */
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.personaje-img {
-  width: 120px;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  border-top-right-radius: 0;
-}
-
-ion-card-header {
-  padding: 12px;
+/* ======== CONTENIDO IZQUIERDO ======== */
+ion-card-header,
+ion-card-content {
+  padding: 10px 12px;
   flex: 1;
+  overflow: hidden;
+}
+
+/* Hace que el texto se mantenga dentro sin deformar la tarjeta */
+ion-card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  overflow-y: auto;         /* ← PERMITE MÁS TEXTO SIN ROMPER */
 }
 
-ion-card-title {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 8px;
+/* ======== IMAGEN DERECHA, MISMO TAMAÑO ======== */
+.personaje-img {
+  width: 110%;             /* ← ANCHO FIJO */
+  height: 100%;             /* ← ALTO FIJO, IGUAL A TARJETA */
+  object-fit: cover;        /* recorta sin deformar */
 }
 
-ion-card-content {
-  padding: 0;
-  flex: 1;
-}
-
-.marvel-card {
-  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, transparent 100%);
-}
-
-.dc-card {
-  box-shadow: 0 4px 12px rgba(0, 110, 255, 0.3);
-  border: 1px solid rgba(0, 110, 255, 0.3);
-  background: linear-gradient(135deg, rgba(0, 110, 255, 0.05) 0%, transparent 100%);
-}
-
+/* ======== ETIQUETAS ======== */
 .etiquetas-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -118,23 +113,10 @@ ion-card-content {
   margin-top: 6px;
 }
 
-.marvel-tag {
-  background: rgba(192, 36, 36, 0.15);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  display: inline-block;
-}
 
-.dc-tag {
-  background: rgba(54, 36, 192, 0.15);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  display: inline-block;
-}
+/* ================================ */
+/*          EXPANDIR TARJETA        */
+/* ================================ */
 
 .expandido-overlay {
   position: fixed;
@@ -276,52 +258,68 @@ ion-card-content {
   --box-shadow: none;
 }
 
+.metricas {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* alinea la base de las barras */
+  gap: 20px;
+}
+
 .metricas .metrica {
-  margin-bottom: 14px;
+  text-align: center;
+  width: 80px; /* ancho fijo de cada columna */
 }
 
 .metrica-header {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 4px;
+  flex-direction: column; /* label arriba, valor debajo */
+  align-items: center;
+  margin-bottom: 6px;
 }
 
 .metrica-header label {
   font-weight: 600;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
 }
 
 .metrica-header .valor {
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 16px;
 }
 
-.barra {
-  width: 100%;
-  height: 10px;
+.barra-vertical {
+  width: 22px;
+  height: 110px;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   backdrop-filter: blur(2px);
 }
 
-.marvel-relleno {
-  height: 100%;
+.relleno-vertical {
+  width: 100%;
+  border-radius: 12px;
+  transition: height 0.4s ease;
+}
+
+.marvel-color {
   background: #de4a4a;
-  border-radius: 10px;
   box-shadow: 0 0 10px rgba(222, 74, 74, 0.5);
 }
 
-.dc-relleno {
-  height: 100%;
+.dc-color {
   background: #4a59de;
-  border-radius: 10px;
   box-shadow: 0 0 10px rgba(74, 89, 222, 0.5);
 }
 
-// Mejora la visibilidad de los botones
+/* Visibilidad iconos */
 .cerrar-btn ion-icon,
 .favorite-btn ion-icon {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
