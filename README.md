@@ -25,7 +25,7 @@ traducciones y ajustes dentro de una app híbrida.
 ### 1. Clonar el repositorio
 
 ``` bash
-git clone https://github.com/Danieltab1/heroes-villanos.git
+git clone https://github.com/Danieltab1/Proyecto.git
 ```
 
 ### 2. Entrar al directorio
