@@ -139,7 +139,7 @@ Si deseas, puedo generarte una sección con imágenes del proyecto.
 
 ## Autor
 
-Proyecto desarrollado por **Daniel Taboada** como parte de prácticas y
+Proyecto desarrollado por **Daniel Taboada y Leyman Vergara** como parte de prácticas y
 aprendizaje de Ionic + Angular.
 
 ------------------------------------------------------------------------

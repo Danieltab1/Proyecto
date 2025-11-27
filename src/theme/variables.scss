@@ -1,6 +1,11 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
 /* This sets a different item border color for the default theme on ios and md */
+ion-content {
+  padding-top: var(--ion-safe-area-top);
+  padding-bottom: var(--ion-safe-area-bottom);
+}
+
 :root {
   --ion-item-border-color: var(--ion-background-color-step-200);
 }
